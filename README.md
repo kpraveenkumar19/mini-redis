@@ -1,4 +1,4 @@
-# mini-redis
+# ![mini-redis icon](assets/icon.png) mini-redis
 
 Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https://redis.io) command (keys with optional expiry, lists including blocking pops, sorted sets, reading from a RDB file) and speaks about the Redis Serialization Protocol -[RESP](https://redis.io/docs/latest/develop/reference/protocol-spec/) and [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/). It ships with a tiny `mini-redis-server` and a companion `mini-redis-cli` for interactive use.
 
@@ -221,7 +221,4 @@ Contributions are welcome! To propose changes:
 2. Make your changes with clear commit messages.
 3. Open a Pull Request describing the change and rationale. Include examples when applicable.
 
-Please keep code simple and readable. This project is a learning aid; clarity trumps completeness.
-
-
-```
+Please keep code simple and readable.
