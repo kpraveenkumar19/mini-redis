@@ -70,6 +70,7 @@ go build -o bin/mini-redis-cli ./cmd/mini-redis-cli
 # Starting the server and cli
 ./bin/mini-redis-server
 ./bin/mini-redis-cli
+```
 
 ## Usage
 
