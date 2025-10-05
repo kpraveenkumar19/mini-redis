@@ -111,7 +111,7 @@ mini-redis-cli> ECHO hello
 hello
 
 mini-redis-cli> KEYS *
-1) key
+1) <returns keys read from an RDB file>
 
 mini-redis-cli> CONFIG GET dir
 1) dir
@@ -130,7 +130,7 @@ OK
 mini-redis-cli> GET greeting
 hello
 
-# Set with millisecond TTL (PX)
+# Set with millisecond (PX)
 mini-redis-cli> SET temp "42" PX 2000
 OK
 mini-redis-cli> GET temp
