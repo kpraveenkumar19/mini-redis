@@ -1,5 +1,5 @@
 <h1>
-  <img src="assets/icon.png" alt="mini-redis icon" width="36" height="36" style="vertical-align: middle />
+  <img src="assets/icon.png" alt="mini-redis icon" width="40" height="40" />
   mini-redis
 </h1>
 
