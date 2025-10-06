@@ -1,6 +1,6 @@
 <h1>
-  <img src="assets/icon.png" alt="mini-redis icon" width="40" height="40" />
-  mini-redis
+  <img src="assets/images/logo.png" alt="mini-redis icon" width="36" height="36" style="vertical-align: -0.25em; margin-right: 8px;" />
+   Mini-Redis
 </h1>
 
 Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https://redis.io) command (keys with optional expiry, lists including blocking pops, sorted sets, reading from a RDB file) and speaks about the Redis Serialization Protocol -[RESP](https://redis.io/docs/latest/develop/reference/protocol-spec/) and [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/). It ships with a tiny `mini-redis-server` and a companion `mini-redis-cli` for interactive use.
