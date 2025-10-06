@@ -11,7 +11,7 @@ Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https:/
 - [Features](#features)
 - [Installation](#installation)
   - [macOS (Homebrew)](#macos-homebrew)
-  - [Windows (Go install)](#windows-go-install)
+  - [Windows](#windows-install)
   - [Build from source (any OS)](#build-from-source-any-os)
 - [Usage](#usage)
   - [Starting the server](#starting-the-server)
