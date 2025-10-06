@@ -1,5 +1,5 @@
 <h1>
-  <img src="assets/images/logo.png" alt="mini-redis icon" width="36" height="36" style="vertical-align: middle; margin-right: 8px;" />
+  <img src="assets/images/icon.png" alt="mini-redis icon" width="36" height="36" style="vertical-align: middle; margin-right: 8px;" />
   Mini-Redis
 </h1>
 
