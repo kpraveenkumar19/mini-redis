@@ -6,26 +6,24 @@
 Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https://redis.io) command (keys with optional expiry, lists including blocking pops, sorted sets, reading from a RDB file) and speaks about the Redis Serialization Protocol -[RESP](https://redis.io/docs/latest/develop/reference/protocol-spec/) and [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/). It ships with a tiny `mini-redis-server` and a companion `mini-redis-cli` for interactive use.
 
 
+
 ## Table of Contents
 
 - [Overview](#overview)
-  
 - [Features](#features)
 
 - [Installation](#installation)
-
   - [macOS (Homebrew)](#macos-homebrew)
   - [Windows](#windows)
- 
-- [Usage](#usage)
 
+- [Usage](#usage)
   - [Starting the server](#starting-the-server)
   - [Starting the CLI](#starting-the-cli)
   - [Commands](#commands)
- 
+  
 - [Resources](#resources)
-
 - [Contributing](#contributing)
+
 
 
 ## Overview
@@ -33,6 +31,7 @@ Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https:/
 This repository contains a implementation of a small, in-memory data store with a Redis-like protocol and command set. The server handles concurrent clients over TCP, parses RESP requests, and executes a core subset of [Redis commands](https://redis.io/docs/latest/commands//?group=bf) for strings, lists, and sorted sets. It can also best-effort load an existing RDB file at startup for simple persistence scenarios (read-only load).
 
 The project is written in Go to demonstrate concurrency, networking, and protocol parsing with a familiar Redis-like interface.
+
 
 
 ## Features
@@ -70,6 +69,7 @@ The project is written in Go to demonstrate concurrency, networking, and protoco
   - `mini-redis-cli` provides an interactive prompt similar to `redis-cli`.
 
 
+
 ## Installation
 
 ### macOS (Homebrew)
@@ -95,6 +95,7 @@ go build -o bin/mini-redis-cli ./cmd/mini-redis-cli
 ./bin/mini-redis-server
 ./bin/mini-redis-cli
 ```
+
 
 
 ## Usage
@@ -233,6 +234,7 @@ mini-redis-cli> ZREM z bob
 ```
 
 
+
 ## Resources
 
 - [Redis Commands](https://redis.io/docs/latest/commands//?group=bf)
@@ -240,6 +242,7 @@ mini-redis-cli> ZREM z bob
 - [Go Concurrency](https://go.dev/tour/concurrency/1)
 - [Redis serialization protocol](https://redis.io/docs/latest/develop/reference/protocol-spec/)
 - [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
+
 
 
 ## Contributing
