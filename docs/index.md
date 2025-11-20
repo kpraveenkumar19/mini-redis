@@ -33,35 +33,35 @@ The project is written in Go to demonstrate concurrency, networking, and protoco
 
 ## Features
 
-- **RESP protocol**: Parses and returns replies using Redis Serialization Protocol (RESP).
+1. **RESP protocol**: Parses and returns replies using Redis Serialization Protocol (RESP).
 
-- **Keys with optional Expiry**:
+2. **Keys with optional Expiry**:
   
   - `SET key value [PX <milliseconds>]`
   - `GET key`
   - Passive expiration on read when PX is set.
  
-- **Lists**:
+3. **Lists**:
   
   - `LPUSH`, `RPUSH`, `LLEN`, `LRANGE`, `LPOP [count]`, `BLPOP key timeout`
   - Basic blocking pop support with timeout or indefinite block.
 
-- **Sorted Sets (ZSET)**:
+4. **Sorted Sets (ZSET)**:
 
   - `ZADD`, `ZRANK`, `ZRANGE`, `ZCARD`, `ZSCORE`, `ZREM`
   - Kept ordered by score (and member name as tiebreaker).
  
-- **Introspection and config**:
+5. **Introspection and config**:
 
   - `PING`, `ECHO <message>`
   - `KEYS *` (only the `*` pattern is supported)
   - `CONFIG GET dir|dbfilename`
  
-- **RDB loading (read-only)**:
+6. **RDB loading (read-only)**:
 
   - If `-dir` and `-dbfilename` are given, the server attempts to load an RDB file on startup.
 
-- **Simple, portable CLI**:
+7. **Simple, portable CLI**:
 
   - `mini-redis-cli` provides an interactive prompt similar to `redis-cli`.
 
