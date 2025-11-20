@@ -6,7 +6,6 @@
 Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https://redis.io) command (keys with optional expiry, lists including blocking pops, sorted sets, reading from a RDB file) and speaks about the Redis Serialization Protocol -[RESP](https://redis.io/docs/latest/develop/reference/protocol-spec/) and [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/). It ships with a tiny `mini-redis-server` and a companion `mini-redis-cli` for interactive use.
 
 
-
 ## Table of Contents
 
 - [Overview](#overview)
@@ -17,7 +16,7 @@ Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https:/
 - [Usage](#usage)
   - [Starting the server](#starting-the-server)
   - [Starting the CLI](#starting-the-cli)
-- [Commands](#commands)
+  - [Commands](#commands)
 - [Resources](#resources)
 - [Contributing](#contributing)
 
@@ -31,34 +30,38 @@ The project is written in Go to demonstrate concurrency, networking, and protoco
 
 ## Features
 
-- **Redis-compatible wire protocol**
-  - Parses and returns replies using the Redis Serialization Protocol (RESP).
-  - Works with the bundled `mini-redis-cli` or any RESP-capable client.
+- **RESP protocol**: Parses and returns replies using Redis Serialization Protocol (RESP).
 
-- **String keys with optional expiry**
-  - `SET key value [PX <milliseconds>]`, `GET key`
-  - Passive expiration on read when `PX` is set.
-
-- **Lists**
+- **Keys with optional Expiry**:
+  
+  - `SET key value [PX <milliseconds>]`
+  - `GET key`
+  - Passive expiration on read when PX is set.
+ 
+- **Lists**:
+  
   - `LPUSH`, `RPUSH`, `LLEN`, `LRANGE`, `LPOP [count]`, `BLPOP key timeout`
-  - Supports blocking pops with a timeout or an indefinite block.
+  - Basic blocking pop support with timeout or indefinite block.
 
-- **Sorted sets (`ZSET`)**
+- **Sorted Sets (ZSET)**:
+
   - `ZADD`, `ZRANK`, `ZRANGE`, `ZCARD`, `ZSCORE`, `ZREM`
-  - Members are kept ordered by score (and member name as a tiebreaker).
+  - Kept ordered by score (and member name as tiebreaker).
+ 
+- **Introspection and config**:
 
-- **Introspection & config**
   - `PING`, `ECHO <message>`
   - `KEYS *` (only the `*` pattern is supported)
   - `CONFIG GET dir|dbfilename`
+ 
+- **RDB loading (read-only)**:
 
-- **RDB loading (read-only)**
-  - When `-dir` and `-dbfilename` are provided, the server attempts to load an RDB file at startup.
+  - If `-dir` and `-dbfilename` are given, the server attempts to load an RDB file on startup.
 
-- **Tiny, portable CLI**
+- **Simple, portable CLI**:
+
   - `mini-redis-cli` provides an interactive prompt similar to `redis-cli`.
 
-<br>
 
 ## Installation
 
@@ -86,7 +89,6 @@ go build -o bin/mini-redis-cli ./cmd/mini-redis-cli
 ./bin/mini-redis-cli
 ```
 
-<br>
 
 ## Usage
 
@@ -113,14 +115,13 @@ boo
 
 Type `exit` or `quit` to leave the CLI.
 
-<br>
 
-## Commands
+### Commands
 
 Below are all commands implemented by this project with example interactions :
 
 
-### Connection and introspection
+#### Connection and introspection
 
 ```text
 mini-redis-cli> PING
@@ -140,7 +141,7 @@ mini-redis-cli> CONFIG GET dbfilename
 2) <rdb file name>
 ```
 
-### Strings
+#### Strings
 
 ```text
 # Basic set/get
@@ -157,7 +158,7 @@ mini-redis-cli> GET temp
 # After ~2 seconds, the key will expire lazily on read
 ```
 
-### Lists
+#### Lists
 
 ```text
 # Push items
@@ -191,7 +192,7 @@ mini-redis-cli> BLPOP mylist 0
 2) d
 ```
 
-### Sorted Sets (ZSET)
+#### Sorted Sets (ZSET)
 
 ```text
 mini-redis-cli> ZADD z 10 alice
@@ -224,7 +225,6 @@ mini-redis-cli> ZREM z bob
 (integer) 1
 ```
 
-<br>
 
 ## Resources
 
@@ -233,7 +233,6 @@ mini-redis-cli> ZREM z bob
 - [Go Concurrency](https://go.dev/tour/concurrency/1)
 - [Redis serialization protocol](https://redis.io/docs/latest/develop/reference/protocol-spec/)
 - [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
-
 
 
 ## Contributing
