@@ -5,9 +5,10 @@
 
 Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https://redis.io) command (keys with optional expiry, lists including blocking pops, sorted sets, reading from a RDB file) and speaks about the Redis Serialization Protocol -[RESP](https://redis.io/docs/latest/develop/reference/protocol-spec/) and [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/). It ships with a tiny `mini-redis-server` and a companion `mini-redis-cli` for interactive use.
 
+
 ## Table of Contents
 
-- [Project Description](#project-description)
+- [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
   - [macOS (Homebrew)](#macos-homebrew)
@@ -15,38 +16,52 @@ Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https:/
 - [Usage](#usage)
   - [Starting the server](#starting-the-server)
   - [Starting the CLI](#starting-the-cli)
-  - [Commands and examples](#commands-and-examples)
+  - [Commands](#commands)
 - [Resources](#resources)
 - [Contributing](#contributing)
-- [License](#license)
 
-## Project Description
+
+## Overview
 
 This repository contains a implementation of a small, in-memory data store with a Redis-like protocol and command set. The server handles concurrent clients over TCP, parses RESP requests, and executes a core subset of [Redis commands](https://redis.io/docs/latest/commands//?group=bf) for strings, lists, and sorted sets. It can also best-effort load an existing RDB file at startup for simple persistence scenarios (read-only load).
 
 The project is written in Go to demonstrate concurrency, networking, and protocol parsing with a familiar Redis-like interface.
 
+
 ## Features
 
 - **RESP protocol**: Parses and returns replies using Redis Serialization Protocol (RESP).
+
 - **Keys with optional Expiry**:
+  
   - `SET key value [PX <milliseconds>]`
   - `GET key`
   - Passive expiration on read when PX is set.
+ 
 - **Lists**:
+  
   - `LPUSH`, `RPUSH`, `LLEN`, `LRANGE`, `LPOP [count]`, `BLPOP key timeout`
   - Basic blocking pop support with timeout or indefinite block.
+
 - **Sorted Sets (ZSET)**:
+
   - `ZADD`, `ZRANK`, `ZRANGE`, `ZCARD`, `ZSCORE`, `ZREM`
   - Kept ordered by score (and member name as tiebreaker).
+ 
 - **Introspection and config**:
+
   - `PING`, `ECHO <message>`
   - `KEYS *` (only the `*` pattern is supported)
   - `CONFIG GET dir|dbfilename`
+ 
 - **RDB loading (read-only)**:
+
   - If `-dir` and `-dbfilename` are given, the server attempts to load an RDB file on startup.
+
 - **Simple, portable CLI**:
+
   - `mini-redis-cli` provides an interactive prompt similar to `redis-cli`.
+
 
 ## Installation
 
@@ -74,6 +89,7 @@ go build -o bin/mini-redis-cli ./cmd/mini-redis-cli
 ./bin/mini-redis-cli
 ```
 
+
 ## Usage
 
 ### Starting the server
@@ -99,9 +115,11 @@ boo
 
 Type `exit` or `quit` to leave the CLI.
 
-### Commands and examples
 
-Below are all commands implemented by this project with example interactions.
+### Commands
+
+Below are all commands implemented by this project with example interactions :
+
 
 #### Connection and introspection
 
@@ -207,6 +225,7 @@ mini-redis-cli> ZREM z bob
 (integer) 1
 ```
 
+
 ## Resources
 
 - [Redis Commands](https://redis.io/docs/latest/commands//?group=bf)
@@ -215,6 +234,7 @@ mini-redis-cli> ZREM z bob
 - [Redis serialization protocol](https://redis.io/docs/latest/develop/reference/protocol-spec/)
 - [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
 
+
 ## Contributing
 
 Contributions are welcome! To propose changes:
@@ -222,5 +242,3 @@ Contributions are welcome! To propose changes:
 1. Fork the repo and create a feature branch.
 2. Make your changes with clear commit messages.
 3. Open a Pull Request describing the change and rationale. Include examples when applicable.
-
-Please keep code simple and readable.
