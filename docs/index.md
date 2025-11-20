@@ -17,7 +17,7 @@ Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https:/
 - [Usage](#usage)
   - [Starting the server](#starting-the-server)
   - [Starting the CLI](#starting-the-cli)
-  - [Commands](#commands)
+- [Commands](#commands)
 - [Resources](#resources)
 - [Contributing](#contributing)
 
@@ -121,12 +121,13 @@ boo
 Type `exit` or `quit` to leave the CLI.
 
 
-### Commands
+
+## Commands
 
 Below are all commands implemented by this project with example interactions :
 
 
-#### Connection and introspection
+### Connection and introspection
 
 ```text
 mini-redis-cli> PING
@@ -146,7 +147,7 @@ mini-redis-cli> CONFIG GET dbfilename
 2) <rdb file name>
 ```
 
-#### Strings
+### Strings
 
 ```text
 # Basic set/get
@@ -163,7 +164,7 @@ mini-redis-cli> GET temp
 # After ~2 seconds, the key will expire lazily on read
 ```
 
-#### Lists
+### Lists
 
 ```text
 # Push items
@@ -197,7 +198,7 @@ mini-redis-cli> BLPOP mylist 0
 2) d
 ```
 
-#### Sorted Sets (ZSET)
+### Sorted Sets (ZSET)
 
 ```text
 mini-redis-cli> ZADD z 10 alice
