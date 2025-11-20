@@ -51,7 +51,7 @@ The project is written in Go to demonstrate concurrency, networking, and protoco
   - `ZADD`, `ZRANK`, `ZRANGE`, `ZCARD`, `ZSCORE`, `ZREM`
   - Kept ordered by score (and member name as tiebreaker).
  
- - **Introspection and config**:
+- **Introspection and config**:
 
   - `PING`, `ECHO <message>`
   - `KEYS *` (only the `*` pattern is supported)
