@@ -22,14 +22,13 @@ Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https:/
 - [Contributing](#contributing)
 
 
-
 ## Overview
 
 This repository contains a implementation of a small, in-memory data store with a Redis-like protocol and command set. The server handles concurrent clients over TCP, parses RESP requests, and executes a core subset of [Redis commands](https://redis.io/docs/latest/commands//?group=bf) for strings, lists, and sorted sets. It can also best-effort load an existing RDB file at startup for simple persistence scenarios (read-only load).
 
 The project is written in Go to demonstrate concurrency, networking, and protocol parsing with a familiar Redis-like interface.
 
-
+<br>
 
 ## Features
 
@@ -65,7 +64,7 @@ The project is written in Go to demonstrate concurrency, networking, and protoco
 
   - `mini-redis-cli` provides an interactive prompt similar to `redis-cli`.
 
-
+<br>
 
 ## Installation
 
@@ -93,7 +92,7 @@ go build -o bin/mini-redis-cli ./cmd/mini-redis-cli
 ./bin/mini-redis-cli
 ```
 
-
+<br>
 
 ## Usage
 
@@ -120,7 +119,7 @@ boo
 
 Type `exit` or `quit` to leave the CLI.
 
-
+<br>
 
 ## Commands
 
@@ -231,7 +230,7 @@ mini-redis-cli> ZREM z bob
 (integer) 1
 ```
 
-
+<br>
 
 ## Resources
 

@@ -31,36 +31,31 @@ The project is written in Go to demonstrate concurrency, networking, and protoco
 
 ## Features
 
-- **RESP protocol**: Parses and returns replies using Redis Serialization Protocol (RESP).
+- **Redis-compatible wire protocol**
+  - Parses and returns replies using the Redis Serialization Protocol (RESP).
+  - Works with the bundled `mini-redis-cli` or any RESP-capable client.
 
-- **Keys with optional Expiry**:
-  
-  - `SET key value [PX <milliseconds>]`
-  - `GET key`
-  - Passive expiration on read when PX is set.
- 
-- **Lists**:
-  
+- **String keys with optional expiry**
+  - `SET key value [PX <milliseconds>]`, `GET key`
+  - Passive expiration on read when `PX` is set.
+
+- **Lists**
   - `LPUSH`, `RPUSH`, `LLEN`, `LRANGE`, `LPOP [count]`, `BLPOP key timeout`
-  - Basic blocking pop support with timeout or indefinite block.
+  - Supports blocking pops with a timeout or an indefinite block.
 
-- **Sorted Sets (ZSET)**:
-
+- **Sorted sets (`ZSET`)**
   - `ZADD`, `ZRANK`, `ZRANGE`, `ZCARD`, `ZSCORE`, `ZREM`
-  - Kept ordered by score (and member name as tiebreaker).
- 
-- **Introspection and config**:
+  - Members are kept ordered by score (and member name as a tiebreaker).
 
+- **Introspection & config**
   - `PING`, `ECHO <message>`
   - `KEYS *` (only the `*` pattern is supported)
   - `CONFIG GET dir|dbfilename`
- 
-- **RDB loading (read-only)**:
 
-  - If `-dir` and `-dbfilename` are given, the server attempts to load an RDB file on startup.
+- **RDB loading (read-only)**
+  - When `-dir` and `-dbfilename` are provided, the server attempts to load an RDB file at startup.
 
-- **Simple, portable CLI**:
-
+- **Tiny, portable CLI**
   - `mini-redis-cli` provides an interactive prompt similar to `redis-cli`.
 
 <br>
