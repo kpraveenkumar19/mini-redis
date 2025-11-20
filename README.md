@@ -28,7 +28,6 @@ This repository contains a implementation of a small, in-memory data store with 
 
 The project is written in Go to demonstrate concurrency, networking, and protocol parsing with a familiar Redis-like interface.
 
-<br>
 
 ## Features
 
