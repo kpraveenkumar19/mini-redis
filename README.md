@@ -3,7 +3,7 @@
   Mini Redis
 </h1>
 
-Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https://redis.io) command (keys with optional expiry, lists including blocking pops, sorted sets, reading from a RDB file) and speaks about the Redis Serialization Protocol -[RESP](https://redis.io/docs/latest/develop/reference/protocol-spec/) and [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/). It ships with a tiny `mini-redis-server` and a companion `mini-redis-cli` for interactive use.
+Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https://redis.io){:target="_blank"} command (keys with optional expiry, lists including blocking pops, sorted sets, reading from a RDB file) and speaks about the Redis Serialization Protocol -[RESP](https://redis.io/docs/latest/develop/reference/protocol-spec/){:target="_blank"} and [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/){:target="_blank"}. It ships with a tiny `mini-redis-server` and a companion `mini-redis-cli` for interactive use.
 
 
 ## Table of Contents
@@ -23,7 +23,7 @@ Minimal Redis-like server and CLI in Go. It supports a subset of [Redis](https:/
 
 ## Overview
 
-This repository contains a implementation of a small, in-memory data store with a Redis-like protocol and command set. The server handles concurrent clients over TCP, parses RESP requests, and executes a core subset of [Redis commands](https://redis.io/docs/latest/commands//?group=bf) for strings, lists, and sorted sets. It can also best-effort load an existing RDB file at startup for simple persistence scenarios (read-only load).
+This repository contains a implementation of a small, in-memory data store with a Redis-like protocol and command set. The server handles concurrent clients over TCP, parses RESP requests, and executes a core subset of [Redis commands](https://redis.io/docs/latest/commands//?group=bf){:target="_blank"} for strings, lists, and sorted sets. It can also best-effort load an existing RDB file at startup for simple persistence scenarios (read-only load).
 
 The project is written in Go to demonstrate concurrency, networking, and protocol parsing with a familiar Redis-like interface.
 
@@ -228,11 +228,11 @@ mini-redis-cli> ZREM z bob
 
 ## Resources
 
-- [Redis Commands](https://redis.io/docs/latest/commands//?group=bf)
-- [Redis DataTypes](https://redis.io/docs/latest/develop/data-types/)
-- [Go Concurrency](https://go.dev/tour/concurrency/1)
-- [Redis serialization protocol](https://redis.io/docs/latest/develop/reference/protocol-spec/)
-- [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
+- [Redis Commands](https://redis.io/docs/latest/commands//?group=bf){:target="_blank"}
+- [Redis DataTypes](https://redis.io/docs/latest/develop/data-types/){:target="_blank"}
+- [Go Concurrency](https://go.dev/tour/concurrency/1){:target="_blank"}
+- [Redis serialization protocol](https://redis.io/docs/latest/develop/reference/protocol-spec/){:target="_blank"}
+- [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/){:target="_blank"}
 
 
 ## Contributing
